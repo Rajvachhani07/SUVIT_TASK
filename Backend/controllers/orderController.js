@@ -2,14 +2,14 @@ const mongoose = require("mongoose");
 const Product = require("../models/Product");
 const Order = require("../models/Order");
 
-// Place order (atomic decrement)
+
 exports.placeOrder = async (req, res) => {
   const { productId, userId, qty } = req.body;
 
   if (!productId || !userId || !qty) return res.status(400).json({ error: "Missing fields" });
 
   try {
-    // Atomic stock decrement
+    
     const product = await Product.findOneAndUpdate(
       { _id: productId, stockQty: { $gte: qty } },
       { $inc: { stockQty: -qty } },
@@ -21,13 +21,13 @@ exports.placeOrder = async (req, res) => {
     const order = await Order.create({ productId, userId, qty });
     res.status(201).json(order);
   } catch (err) {
-    // Revert stock if order creation fails
+    
     await Product.findByIdAndUpdate(productId, { $inc: { stockQty: qty } });
     res.status(500).json({ error: err.message });
   }
 };
 
-// Cancel order (restore stock)
+
 exports.cancelOrder = async (req, res) => {
   const { id } = req.params;
 
@@ -54,7 +54,7 @@ exports.cancelOrder = async (req, res) => {
   }
 };
 
-// Get all orders for a user
+
 exports.getUserOrders = async (req, res) => {
   try {
     const orders = await Order.find({ userId: req.params.userId })

@@ -1,7 +1,6 @@
 const Product = require("../models/Product");
 const Vendor = require("../models/vendor");
 
-// GET all products with vendor info
 exports.getProducts = async (req, res) => {
   try {
     const products = await Product.find().populate("vendorId", "name email");
@@ -11,7 +10,6 @@ exports.getProducts = async (req, res) => {
   }
 };
 
-// GET single product by ID
 exports.getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id).populate("vendorId", "name email");

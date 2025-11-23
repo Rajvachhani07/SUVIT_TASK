@@ -8,7 +8,7 @@ const OrderSchema = new mongoose.Schema(
       required: true,
     },
     userId: {
-      type: String, // simple user representation for this assignment
+      type: String,
       required: true,
     },
     qty: {

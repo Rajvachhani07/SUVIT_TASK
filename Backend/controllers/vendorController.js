@@ -16,7 +16,7 @@ exports.getVendorDashboard = async (req, res) => {
         }
       },
       { $unwind: "$product" },
-      { $match: { "product.vendorId": mongoose.Types.ObjectId(vendorId) } },
+      { $match: { "product.vendorId": new mongoose.Types.ObjectId(vendorId) } },
       {
         $group: {
           _id: "$productId",
