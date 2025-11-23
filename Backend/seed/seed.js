@@ -7,12 +7,12 @@ const Product = require("../models/Product");
 const seedData = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("🌱 Connected to MongoDB for Seeding");
+    console.log("Connected to MongoDB for Seeding");
 
     // CLEAR OLD DATA
     await Vendor.deleteMany({});
     await Product.deleteMany({});
-    console.log("🧹 Cleared old Vendor & Product data");
+    console.log("Cleared old Vendor & Product data");
 
     // CREATE VENDORS
     const vendors = await Vendor.insertMany([
@@ -21,9 +21,9 @@ const seedData = async () => {
       { name: "Tech Hub", email: "tech@vendors.com" },
     ]);
 
-    console.log("🏪 Vendors inserted:", vendors.length);
+    console.log(" Vendors inserted:", vendors.length);
 
-    // CREATE PRODUCTS (sample 10 products)
+    // CREATE PRODUCTS sample 10 products
     const products = [
       {
         vendorId: vendors[0]._id,
@@ -101,12 +101,12 @@ const seedData = async () => {
     ];
 
     await Product.insertMany(products);
-    console.log("📦 Products inserted:", products.length);
+    console.log("Products inserted:", products.length);
 
-    console.log("🎉 Seeding Completed Successfully!");
+    console.log(" Seeding Completed Successfully!");
     process.exit(0);
   } catch (err) {
-    console.error("❌ Seeding Error:", err);
+    console.error("Seeding Error:", err);
     process.exit(1);
   }
 };
