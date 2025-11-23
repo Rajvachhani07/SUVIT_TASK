@@ -157,6 +157,19 @@ node seed.js
 
 ------------------------------------
 
+## ✔ ScreenShots
+
+<img width="1365" height="646" alt="Screenshot_1" src="https://github.com/user-attachments/assets/72338b62-1147-4249-90fd-705f96d01f82" />
+<img width="1353" height="645" alt="Screenshot_2" src="https://github.com/user-attachments/assets/46f713e3-b25c-4ce6-9891-32ff10d5fc75" />
+<img width="1359" height="638" alt="Screenshot_3" src="https://github.com/user-attachments/assets/310e5159-a088-4024-991b-2d5c5c0fa53f" />
+<img width="1354" height="635" alt="Screenshot_4" src="https://github.com/user-attachments/assets/c92f560f-42c2-4a30-9b9f-02f1c39b12e1" />
+
+
+
+
+
+------------------------------------
+
 ## 📄 License
 
 This project is for educational & interview purposes only.
